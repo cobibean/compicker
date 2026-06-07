@@ -18,10 +18,6 @@ Visual decisions are easy to fake when options are floating in a mockup. Compick
 - hover and active states are checked where people will actually click
 - temporary picker code gets removed during the lock-in pass
 
-<p align="center">
-  <img src="assets/readme/compicker-hero-sacred-relay.png" alt="Compicker sacred relay control-room hero image" width="100%">
-</p>
-
 ## Install
 
 Copy this repository into your Codex skills directory:
@@ -54,10 +50,6 @@ Compicker guides an agent through a narrow, product-aware workflow:
 5. Verify every option by clicking through it in browser.
 6. Recommend the strongest option and explain the tradeoffs.
 7. When the user chooses, lock the winner and remove temporary code.
-
-<p align="center">
-  <img src="assets/readme/compicker-workflow-gates.png" alt="Compicker workflow gates illustration" width="100%">
-</p>
 
 ## Good Use Cases
 
@@ -106,10 +98,6 @@ export function Compicker({
 
 For static HTML/CSS prototypes, radios plus `:checked` or `:has()` can work when the target browser supports them and the selected state is visibly reliable.
 
-<p align="center">
-  <img src="assets/readme/compicker-picker-console.png" alt="Compicker temporary picker console illustration" width="100%">
-</p>
-
 ## Lock-In Pass
 
 Compicker is intentionally temporary. Once a winner is chosen, the agent should:
@@ -119,10 +107,6 @@ Compicker is intentionally temporary. Once a winner is chosen, the agent should:
 - restore spacing that only existed to fit the picker
 - keep useful permanent variables, tokens, or asset choices
 - re-run checks and mention any remaining pre-existing warnings
-
-<p align="center">
-  <img src="assets/readme/compicker-lock-in-pass.png" alt="Compicker lock-in pass illustration" width="100%">
-</p>
 
 ## Repository Layout
 
