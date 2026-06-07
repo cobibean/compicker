@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/readme/compicker-hero-sacred-relay.png" alt="Compicker sacred relay control-room hero image" width="100%">
+  <img src="assets/readme/compicker-repo-card.png" alt="Compicker HermesPad-style repository card" width="720">
 </p>
 
 # Compicker
@@ -19,7 +19,7 @@ Visual decisions are easy to fake when options are floating in a mockup. Compick
 - temporary picker code gets removed during the lock-in pass
 
 <p align="center">
-  <img src="assets/readme/compicker-workflow-gates.png" alt="Compicker workflow gates illustration" width="100%">
+  <img src="assets/readme/compicker-hero-sacred-relay.png" alt="Compicker sacred relay control-room hero image" width="100%">
 </p>
 
 ## Install
@@ -56,7 +56,7 @@ Compicker guides an agent through a narrow, product-aware workflow:
 7. When the user chooses, lock the winner and remove temporary code.
 
 <p align="center">
-  <img src="assets/readme/compicker-picker-console.png" alt="Compicker temporary picker console illustration" width="100%">
+  <img src="assets/readme/compicker-workflow-gates.png" alt="Compicker workflow gates illustration" width="100%">
 </p>
 
 ## Good Use Cases
@@ -106,6 +106,10 @@ export function Compicker({
 
 For static HTML/CSS prototypes, radios plus `:checked` or `:has()` can work when the target browser supports them and the selected state is visibly reliable.
 
+<p align="center">
+  <img src="assets/readme/compicker-picker-console.png" alt="Compicker temporary picker console illustration" width="100%">
+</p>
+
 ## Lock-In Pass
 
 Compicker is intentionally temporary. Once a winner is chosen, the agent should:
@@ -139,10 +143,6 @@ Compicker is intentionally temporary. Once a winner is chosen, the agent should:
 ```text
 Open source Codex skill by @cobi_bean for building temporary in-product pickers to compare UI variants, choose a winner, and remove the picker cleanly.
 ```
-
-<p align="center">
-  <img src="assets/readme/compicker-repo-card.png" alt="Compicker repository card illustration" width="480">
-</p>
 
 ## License
 
