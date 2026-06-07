@@ -1,0 +1,1 @@
+Open source Codex skill by @cobi_bean for building temporary in-product pickers to compare UI variants, choose a winner, and remove the picker cleanly.

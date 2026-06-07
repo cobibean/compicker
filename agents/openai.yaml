@@ -1,0 +1,4 @@
+interface:
+  display_name: "Compicker"
+  short_description: "Compare UI options with an in-app picker"
+  default_prompt: "Use $compicker to compare these visual UI options with a temporary picker, then help lock in the winner."
