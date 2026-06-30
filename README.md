@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/readme/compicker-repo-card.png" alt="Compicker HermesPad-style repository card" width="720">
-</p>
-
 # Compicker
 
 Compicker is an open source Codex skill for comparing visual and UI alternatives inside the actual product before committing to one direction. It was made by [@cobi_bean](https://twitter.com/cobi_bean).
