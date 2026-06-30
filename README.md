@@ -8,12 +8,17 @@ Compicker is an open source Codex skill for comparing visual and UI alternatives
 
 Instead of judging screenshots in isolation, Compicker asks the agent to build a temporary in-product picker, wire each option to the exact visual layer being compared, verify the variants in browser, then remove the picker once a winner is chosen.
 
+<p align="center">
+  <img src="assets/readme/design-lab-route-picker.png" alt="A temporary Compicker design-lab route comparing five dark mode toggle treatments in context" width="960">
+</p>
+
 ## Why
 
 Visual decisions are easy to fake when options are floating in a mockup. Compicker keeps the decision in context:
 
 - backgrounds are judged behind the real content
 - cards are judged next to adjacent cards
+- theme, nav, hero, modal, motion, and token decisions can be judged together on a temporary design-lab route
 - copy treatments are judged in the real hierarchy
 - hover and active states are checked where people will actually click
 - temporary picker code gets removed during the lock-in pass
@@ -24,7 +29,7 @@ Copy this repository into your Codex skills directory:
 
 ```bash
 mkdir -p ~/.codex/skills
-git clone <repo-url> ~/.codex/skills/compicker
+git clone https://github.com/cobibean/compicker.git ~/.codex/skills/compicker
 ```
 
 Then call it from Codex with:
@@ -45,7 +50,7 @@ Compicker guides an agent through a narrow, product-aware workflow:
 
 1. Identify what is being compared.
 2. Find the current implementation and local variant sources.
-3. Build the smallest useful temporary picker in the real UI.
+3. Choose the comparison surface: inline picker for narrow changes, or a temporary design-lab route for broader page-level decisions.
 4. Wire variants to the exact layer being compared.
 5. Verify every option by clicking through it in browser.
 6. Recommend the strongest option and explain the tradeoffs.
@@ -57,9 +62,30 @@ Compicker guides an agent through a narrow, product-aware workflow:
 - compare page or section backgrounds
 - compare card treatments
 - compare product screenshots or media crops
+- compare theme toggles, shared tokens, or light/dark mode foundations
+- compare nav, hero, modal, card, and motion treatments together on a temporary `/design-lab` route
 - compare copy/layout variants
 - compare hover, selected, or active states
 - make a review picker for 3 to 7 UI directions
+
+## Design Lab Route Pattern
+
+Compicker does not create `/design-lab` automatically for every visual decision. It uses a design-lab route, or the app's nearest equivalent, when the comparison needs a focused review surface with real page context.
+
+Use a design lab when:
+
+- the user explicitly asks for `/design-lab`, a review page, or a sandbox route
+- variants affect page-level systems like theme, navigation, hero treatment, typography, motion language, card systems, modal chrome, or shared tokens
+- variants need to be seen in several realistic contexts at once
+- an inline picker would crowd, obscure, or distort the surface being judged
+
+Keep the lab temporary and honest:
+
+- reuse real app assets, copy, components, sections, and states whenever possible
+- show variants in context, not as isolated specimens
+- scope lab-only state with route-local state, stable `data-*` attributes, or CSS variables
+- avoid wiring permanent global behavior until the user chooses a winner
+- remove the lab route and picker during the lock-in pass, or promote only the winning durable pieces into the app
 
 ## Picker Pattern
 

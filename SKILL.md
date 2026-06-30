@@ -1,22 +1,42 @@
 ---
 name: compicker
-description: Build temporary in-product pickers for comparing visual or UI alternatives, then help choose and lock the winning option. Use when the user says /compicker, $compicker, compicker, compare/pick visual variants, make a review picker, compare backgrounds, compare hero images, compare component designs, compare copy/layout/card treatments, or wants to audition multiple UI directions inside the actual app before committing.
+description: Build temporary in-product pickers for comparing visual or UI alternatives, then help choose and lock the winning option. Use when the user says /compicker, $compicker, compicker, compare/pick visual variants, make a review picker, compare in a design-lab route/page, compare backgrounds, compare hero images, compare component designs, compare copy/layout/card treatments, or wants to audition multiple UI directions inside the actual app before committing.
 ---
 
 # Compicker
 
 ## Overview
 
-Use this skill to compare visual/UI alternatives in the product itself. The default output is a temporary picker that makes variants easy to toggle, plus a clean path to remove the picker and lock the chosen direction.
+Use this skill to compare visual/UI alternatives in the product itself. The default output is a temporary picker that makes variants easy to toggle, plus a clean path to remove the picker and lock the chosen direction. Use an inline picker for narrow surfaces; use a temporary design-lab route/page when variants need broader page context.
 
 ## Workflow
 
 1. Identify what is being compared: backgrounds, components, copy treatments, layouts, colors, media, or interaction states.
 2. Find the current implementation and variant sources. Read local code/assets first, then ask only if variants or target surfaces are genuinely ambiguous.
-3. Build the smallest useful picker in the real UI. Prefer a temporary control near the affected surface, with clear labels and keyboard-accessible buttons or radios.
+3. Choose the comparison surface. Prefer a temporary control near the affected surface for narrow changes. Create a temporary design-lab route/page when the user asks for one, the comparison spans multiple contexts, or an inline picker would obscure or distort the thing being judged.
 4. Wire variants to the exact layer being compared. Be explicit about main background versus card background, section background versus component surface, copy text versus layout, and hover/active states.
 5. Verify each option by clicking through it in-browser. Check desktop and mobile when the visual surface is responsive.
 6. Summarize the strongest option and tradeoffs. When the user chooses, lock the winner and remove the temporary picker code.
+
+## Design Lab Route Pattern
+
+Use a `/design-lab` route, or the project's nearest equivalent, when comparison needs a focused review surface with real page context. Do not create `/design-lab` automatically for every compicker task.
+
+Create a design lab when:
+
+- The user explicitly asks for `/design-lab`, a design lab, a review page, or a sandbox route.
+- The variants affect page-level systems such as theme, navigation, hero treatment, typography, motion language, card systems, modal chrome, or shared tokens.
+- The variants need to be seen in several realistic contexts at once, such as hero plus nav plus cards plus modal.
+- Placing the picker inline would crowd, obscure, or change the surface being judged.
+
+Keep the lab useful and temporary:
+
+- Reuse real app assets, copy, components, sections, and interaction states whenever possible.
+- Show variants in context, not as isolated specimens on a blank page.
+- Include the temporary picker, current selection, and at least one realistic target surface using that selection.
+- Scope lab-only state with stable `data-*` attributes, route-local state, or CSS variables. Do not wire global behavior permanently until the user chooses a winner.
+- Mark the lab as temporary and provide a path back to the real app.
+- When the user chooses, either remove the lab route with the picker or promote only the winning durable pieces into the app.
 
 ## Picker Pattern
 
